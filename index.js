@@ -12,15 +12,29 @@ if (!databaseUri) {
 }
 
 var api = new ParseServer({
-  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
-  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'myAppId',
-  masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
-  liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
-  }
-});
+	  databaseURI: databaseUri || 'mongodb://heroku_mzh9z7fj:2biadrg17pg08u1e1p1qvqa7jt@ds023432.mlab.com:23432/heroku_mzh9z7fj',
+	  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+	  appId: process.env.APP_ID || 'PJGh686wADXdRboLLmbkER0V4D95wlLVatRJXUl0',
+	  masterKey: process.env.MASTER_KEY || '4t5Y7WU5lShBRzNz4SeT1gbXxqfABGRvH0T8bL3c', //Add your master key here. Keep it secret!
+	  serverURL: process.env.SERVER_URL || 'https://night-market--taiwan.herokuapp.com/parse',  // Don't forget to change to https if needed
+	  liveQuery: {
+	    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+	  },
+	  // 以下為新增部分
+	  push: {
+	    // 此篇未提到 Android，因此註解掉
+	    android: {
+	      senderId: '421475043173',
+	      apiKey: 'AAAAYiHex2U:APA91bGINas3MA5j6oHplNTSKRX0KWzrR2Wc5n6InWp2yiq0wSWgAMks8jD88IzBOgfoS-X9LYn67ymgIjFQ2MvNg0cvEbrCvVfJRJJ-9RoCx8cnpnI2vbWEsvxgxWOCspi9jirYYNUevshHdJobCbZMsSyYdLiLFw'
+	    },
+	    ios: {
+	      pfx:  __dirname + '/iPhoneP12/com.arata1972.night.market.store.p12', // 與 index.js 目錄同層
+	      bundleId: 'com.arata1972.night.market', // 填入先前填的 Bundle ID
+	      production: true // false: development, true: production
+	    }
+	  }
+	});
+
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
