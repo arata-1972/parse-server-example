@@ -24,12 +24,12 @@ var api = new ParseServer({
 	  push: {
 	    // 此篇未提到 Android，因此註解掉
 	    android: {
-	      senderId: '421475043173',
-	      apiKey: 'AAAAYiHex2U:APA91bGINas3MA5j6oHplNTSKRX0KWzrR2Wc5n6InWp2yiq0wSWgAMks8jD88IzBOgfoS-X9LYn67ymgIjFQ2MvNg0cvEbrCvVfJRJJ-9RoCx8cnpnI2vbWEsvxgxWOCspi9jirYYNUevshHdJobCbZMsSyYdLiLFw'
+	      senderId: 'AAAA',
+	      apiKey: 'BBBB'
 	    },
 	    ios: {
-	      pfx:  __dirname + '/iPhoneP12/com.arata1972.night.market.store.p12', // 與 index.js 目錄同層
-	      bundleId: 'com.arata1972.night.market', // 填入先前填的 Bundle ID
+	      pfx:  __dirname + '/iPhoneP12/com.arata1972.machitsuku store.p12', // 與 index.js 目錄同層
+	      bundleId: 'com.arata1972.machitsuku', // 填入先前填的 Bundle ID
 	      production: true // false: development, true: production
 	    }
 	  }
